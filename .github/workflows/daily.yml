@@ -13,12 +13,12 @@ jobs:
 
     steps:
       - name: Checkout
-        # 已更新為 actions/checkout@v4.2.2 的完整 Commit SHA，支援 Node.js 24
+        # 使用 actions/checkout@v4.2.2 的正確 SHA
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
 
       - name: Setup uv
-        # 已升級並更新為 astral-sh/setup-uv@v5.1.0 的完整 Commit SHA，支援 Node.js 24
-        uses: astral-sh/setup-uv@3f993d0d8299173f4e3b7db2c4819d4586d14878
+        # 已修正為 astral-sh/setup-uv 官方文件的最新正確 40 位元 Commit SHA
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
         with:
           python-version: "3.11"
 
