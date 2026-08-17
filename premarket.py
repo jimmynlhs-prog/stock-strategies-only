@@ -9,6 +9,8 @@
 import os
 import sys
 from datetime import datetime
+from zoneinfo import ZoneInfo
+
 
 try:
     from dotenv import load_dotenv
@@ -31,6 +33,13 @@ REQUIRED_ENV = [
 
 
 def main():
+    # Check if today is Saturday (Taiwan time) and skip sending
+    taiwan_tz = ZoneInfo("Asia/Taipei")
+    now_tw = datetime.now(taiwan_tz)
+    if now_tw.weekday() == 5:  # Saturday
+        print("⚠️ Saturday run skipped; no Telegram notification.")
+        sys.exit(0)
+
     missing = [k for k in REQUIRED_ENV if not os.environ.get(k)]
     if missing:
         print(f"❌ 缺少環境變數: {missing}", file=sys.stderr)
@@ -62,4 +71,13 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        err_msg = f"❌ Premarket script error: {e}"
+        print(err_msg, file=sys.stderr)
+        try:
+            send_telegram(err_msg)
+        except Exception:
+            pass
+        raise
