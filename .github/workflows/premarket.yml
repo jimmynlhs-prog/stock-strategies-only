@@ -23,6 +23,13 @@ jobs:
       - name: Install deps
         run: uv sync
 
+      - name: Random delay jitter
+        if: github.event_name == 'schedule'
+        run: |
+          DELAY=$((RANDOM % 60 + 5))
+          echo "🎲 Random jitter: sleeping for ${DELAY}s to randomize execution timing..."
+          sleep ${DELAY}
+
       - name: Run premarket report
         env:
           FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
