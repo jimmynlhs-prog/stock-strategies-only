@@ -46,7 +46,8 @@ def main():
         sys.exit(1)
 
     # 1. 取得台指期夜盤
-    print(f"[{datetime.now()}] 取得台指期夜盤...")
+    now_tw = datetime.now(taiwan_tz)
+    print(f"[{now_tw}] 取得台指期夜盤...")
     night = get_night_session()
     if night:
         print(f"  → {night['date']} 夜盤 {night['pct']:+.2f}% ({night['label']})")
