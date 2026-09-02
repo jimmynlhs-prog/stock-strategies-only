@@ -2,9 +2,8 @@ name: V3 Daily Signal
 
 on:
   schedule:
-    # 台灣時間 14:42（台股收盤盤後結算後，避開整點與半點排隊高峰）
-    - cron: '42 14 * * 1-5'
-      timezone: 'Asia/Taipei'
+    # 台灣時間 14:42 = UTC 06:42（台股收盤盤後結算後，避開整點與半點排隊高峰）
+    - cron: '42 6 * * 1-5'
   workflow_dispatch:
 
 jobs:

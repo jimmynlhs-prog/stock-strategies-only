@@ -58,11 +58,17 @@ def main():
     #    讀 300 筆以涵蓋多日（單日掃描可能就數十筆 SKIP），
     #    format_premarket 會自動挑「最近一批有 BUY/WATCH」的日期。
     print("讀取昨日訊號...")
-    try:
-        signals = read_latest_signals(limit=300)
-    except Exception as e:
-        print(f"⚠️ 讀取訊號失敗: {e}", file=sys.stderr)
-        signals = []
+    signals = []
+    max_retries = 3
+    for attempt in range(1, max_retries + 1):
+        try:
+            signals = read_latest_signals(limit=300)
+            break
+        except Exception as e:
+            print(f"⚠️ 讀取訊號失敗 (嘗試 {attempt}/{max_retries}): {e}", file=sys.stderr)
+            if attempt < max_retries:
+                import time
+                time.sleep(2)
     print(f"  → {len(signals)} 筆")
 
     # 3. 發送 Telegram 盤前快報
