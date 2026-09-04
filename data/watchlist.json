@@ -1,0 +1,37 @@
+[
+  {
+    "stock_id": "2317",
+    "name": "鴻海",
+    "enabled": 1
+  },
+  {
+    "stock_id": "2330",
+    "name": "台積電",
+    "enabled": 1
+  },
+  {
+    "stock_id": "2367",
+    "name": "燿華",
+    "enabled": 1
+  },
+  {
+    "stock_id": "2474",
+    "name": "可成",
+    "enabled": 1
+  },
+  {
+    "stock_id": "2646",
+    "name": "星宇航空",
+    "enabled": 1
+  },
+  {
+    "stock_id": "2885",
+    "name": "元大金",
+    "enabled": 1
+  },
+  {
+    "stock_id": "6278",
+    "name": "台表科",
+    "enabled": 1
+  }
+]
