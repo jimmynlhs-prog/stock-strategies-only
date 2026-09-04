@@ -1,10 +1,7 @@
 name: Premarket Night Session
 
 on:
-  schedule:
-    # 台灣時間 08:18 = UTC 00:18（夜盤 05:00 收盤後、開盤 09:00 前，避開整點與半點排隊高峰）
-    - cron: '18 0 * * 1-5'
-  workflow_dispatch:  # 允許手動觸發測試
+  workflow_dispatch:  # 由 cron-job.org 外部精準排程或手動觸發
 
 jobs:
   run-premarket:
@@ -22,13 +19,6 @@ jobs:
 
       - name: Install deps
         run: uv sync
-
-      - name: Random delay jitter
-        if: github.event_name == 'schedule'
-        run: |
-          DELAY=$((RANDOM % 60 + 5))
-          echo "🎲 Random jitter: sleeping for ${DELAY}s to randomize execution timing..."
-          sleep ${DELAY}
 
       - name: Run premarket report
         env:

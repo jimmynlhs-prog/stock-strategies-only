@@ -1,10 +1,7 @@
 name: V3 Daily Signal
 
 on:
-  schedule:
-    # 台灣時間 14:42 = UTC 06:42（台股收盤盤後結算後，避開整點與半點排隊高峰）
-    - cron: '42 6 * * 1-5'
-  workflow_dispatch:
+  workflow_dispatch:  # 由 cron-job.org 外部精準排程或手動觸發
 
 jobs:
   run-signal:
@@ -24,13 +21,6 @@ jobs:
 
       - name: Install deps
         run: uv sync
-
-      - name: Random delay jitter
-        if: github.event_name == 'schedule'
-        run: |
-          DELAY=$((RANDOM % 120 + 10))
-          echo "🎲 Random jitter: sleeping for ${DELAY}s to randomize execution timing..."
-          sleep ${DELAY}
 
       - name: Run signal engine
         env:
