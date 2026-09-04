@@ -35,6 +35,8 @@ from stock_strategies.night_session import (
     apply_night_filter,
     night_filter_note,
 )
+from stock_strategies.config import CONFIG
+from stock_strategies.loader import get_strategy
 from stock_strategies.performance import update_performance, summary as perf_summary
 
 
@@ -69,15 +71,21 @@ def main():
     night_note = night_filter_note(night)
     print(f"  → {night_note}")
 
-    # 3. 個股評分
+    # 3. 個股評分（多策略同步掃描）
+    active_strategies = [
+        get_strategy("default") or {"id": "default"},
+        get_strategy("chan_longterm") or {"id": "chan_longterm"},
+        get_strategy("chan_shortterm") or {"id": "chan_shortterm"},
+    ]
     results = []
     for i, row in enumerate(watchlist, 1):
         sid = str(row["stock_id"])
         name = row.get("name", "")
         print(f"[{i}/{len(watchlist)}] {sid} {name}")
-        r = evaluate(sid, name)
-        if r:
-            results.append(r)
+        for strat in active_strategies:
+            r = evaluate(sid, name, strategy=strat)
+            if r:
+                results.append(r)
         time.sleep(0.6)
 
     # 4. 套用大盤濾鏡：跌破月線時 BUY 一律降為 WATCH
@@ -141,8 +149,8 @@ def _format_perf_message(stats: dict) -> str:
         f"已完成追蹤訊號: {stats['count']} 筆",
         f"T+20 勝率: {stats['winrate_t20']}%",
         f"T+20 平均報酬: {stats['avg_t20']}%",
-        f"觸及停利 +{int(0.10 * 100)}%: {stats['hit_target']} 次",
-        f"觸及停損 -{int(0.08 * 100)}%: {stats['hit_stop']} 次",
+        f"觸及停利 +{int(CONFIG['target_return'] * 100)}%: {stats['hit_target']} 次",
+        f"觸及停損 -{int(CONFIG['stop_loss'] * 100)}%: {stats['hit_stop']} 次",
         "",
         "_完整紀錄見 Google Sheet『Performance』分頁_",
     ]

@@ -124,7 +124,7 @@ def update_performance(
     # 2. 把今日新 BUY 加入追蹤清單
     today = datetime.now().strftime("%Y-%m-%d")
     existing_keys = {
-        (str(r.get("signal_date", "")), str(r.get("stock_id", "")))
+        (str(r.get("signal_date", "")), str(r.get("stock_id", "")), str(r.get("strategy_id", "")))
         for r in records
     }
     for s in today_signals:
@@ -132,10 +132,12 @@ def update_performance(
             continue
         sig_date = str(s.get("date", today))
         sid = str(s.get("stock_id", ""))
-        if (sig_date, sid) in existing_keys:
+        strat_id = str(s.get("strategy_id", "default"))
+        if (sig_date, sid, strat_id) in existing_keys:
             continue
         records.append({
             "signal_date": sig_date,
+            "strategy_id": strat_id,
             "stock_id": sid,
             "name": s.get("name", ""),
             "entry_close": s.get("entry_price", ""),

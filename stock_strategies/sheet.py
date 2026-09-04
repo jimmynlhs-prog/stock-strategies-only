@@ -29,41 +29,71 @@ def read_watchlist() -> list[dict]:
     return enabled
 
 
+SIGNALS_HEADERS = [
+    "date", "strategy_id", "stock_id", "name", "action", "signal_score",
+    "entry_price", "stop_loss_price", "target_price",
+    "rr_ratio", "position_pct", "winrate", "samples",
+    "tech_signals", "risk_notes"
+]
+
+
 def append_signals(signals: list[dict]):
-    """把結果寫回 Signals 分頁"""
+    """把結果寫回 Signals 分頁（支援多策略 strategy_id 欄位）"""
     if not signals:
         return
     sh = get_gsheet()
     try:
         ws = sh.worksheet("Signals")
+        values = ws.get_all_values()
+        if not values:
+            headers = SIGNALS_HEADERS
+            ws.append_row(headers)
+        else:
+            headers = [h.strip() for h in values[0]]
     except gspread.WorksheetNotFound:
-        ws = sh.add_worksheet(title="Signals", rows=1000, cols=20)
-        ws.append_row([
-            "date", "stock_id", "name", "action", "signal_score",
-            "entry_price", "stop_loss_price", "target_price",
-            "rr_ratio", "position_pct", "winrate", "samples",
-            "tech_signals", "risk_notes"
-        ])
+        ws = sh.add_worksheet(title="Signals", rows=2000, cols=20)
+        headers = SIGNALS_HEADERS
+        ws.append_row(headers)
 
+    has_strat = "strategy_id" in headers
     rows = []
     for s in signals:
         c = s.get("components", {})
-        rows.append([
-            s.get("date", ""),
-            s.get("stock_id", ""),
-            s.get("name", ""),
-            s.get("action", ""),
-            s.get("signal_score", ""),
-            s.get("entry_price", ""),
-            s.get("stop_loss_price", ""),
-            s.get("target_price", ""),
-            s.get("risk_reward_ratio", ""),
-            s.get("position_size_pct", ""),
-            c.get("backtest_winrate", ""),
-            c.get("backtest_samples", ""),
-            ", ".join(c.get("tech_signals", [])),
-            " / ".join(s.get("risk_notes", [])),
-        ])
+        if has_strat:
+            rows.append([
+                s.get("date", ""),
+                s.get("strategy_id", "default"),
+                s.get("stock_id", ""),
+                s.get("name", ""),
+                s.get("action", ""),
+                s.get("signal_score", ""),
+                s.get("entry_price", ""),
+                s.get("stop_loss_price", ""),
+                s.get("target_price", ""),
+                s.get("risk_reward_ratio", ""),
+                s.get("position_size_pct", ""),
+                c.get("backtest_winrate", ""),
+                c.get("backtest_samples", ""),
+                ", ".join(c.get("tech_signals", [])),
+                " / ".join(s.get("risk_notes", [])),
+            ])
+        else:
+            rows.append([
+                s.get("date", ""),
+                s.get("stock_id", ""),
+                s.get("name", ""),
+                s.get("action", ""),
+                s.get("signal_score", ""),
+                s.get("entry_price", ""),
+                s.get("stop_loss_price", ""),
+                s.get("target_price", ""),
+                s.get("risk_reward_ratio", ""),
+                s.get("position_size_pct", ""),
+                c.get("backtest_winrate", ""),
+                c.get("backtest_samples", ""),
+                ", ".join(c.get("tech_signals", [])),
+                " / ".join(s.get("risk_notes", [])),
+            ])
     ws.append_rows(rows)
 
 
@@ -157,7 +187,7 @@ def read_latest_signals(limit: int = 50) -> list[dict]:
 
 
 PERFORMANCE_HEADERS = [
-    "signal_date", "stock_id", "name", "entry_close", "entry_open",
+    "signal_date", "strategy_id", "stock_id", "name", "entry_close", "entry_open",
     "t5_date", "t5_close", "t5_ret",
     "t10_date", "t10_close", "t10_ret",
     "t20_date", "t20_close", "t20_ret",

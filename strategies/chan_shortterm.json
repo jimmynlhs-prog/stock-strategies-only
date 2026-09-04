@@ -1,0 +1,35 @@
+{
+  "id": "chan_shortterm",
+  "name": "纏論三買 (Short-term 短線爆發策略)",
+  "description": "依據纏論第三類買點（中樞向上突破次回抽不破中樞頂）：均線強勢多頭排列、帶量突破箱頂與量能確認，主升段動能加速。持有 10 日，目標停利 +10%，窄幅停損 -5%。",
+  "source": "manual",
+  "created_at": "2026-09-02T00:00:00Z",
+  "updated_at": "2026-09-02T00:00:00Z",
+  "params": {
+    "eps_threshold": 2.0,
+    "roe_threshold": 8.0,
+    "fundamental_pass_required": false,
+
+    "backtest_years": 2,
+    "hold_days": 10,
+    "min_tech_score_for_signal": 65,
+
+    "target_return": 0.10,
+    "stop_loss": 0.05,
+
+    "weight_fundamental": 0.20,
+    "weight_technical": 0.45,
+    "weight_backtest": 0.35,
+    "min_total_score_for_buy": 72,
+    "min_tech_score_for_buy": 60,
+
+    "use_ma_alignment": true,
+    "use_bollinger_bounce": false,
+    "use_kd_golden_cross": true,
+    "use_macd_bullish": true,
+    "use_volume_patterns": true,
+
+    "market_filter_enabled": true,
+    "market_filter_ma_period": 20
+  }
+}

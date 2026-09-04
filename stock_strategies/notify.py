@@ -38,7 +38,16 @@ def _format_stock_detail(s: dict, show_trend: bool = True) -> list[str]:
     wr = f"{c['backtest_winrate']*100:.0f}%" if c.get("backtest_winrate") else "N/A"
     fund = "✅" if c.get("fundamental_pass") else "❌"
 
-    lines.append(f"*{s['stock_id']} {s['name']}*  綜合 {s['signal_score']} 分")
+    strat_map = {
+        "chan_longterm": "【🎯 纏論一買・長線】",
+        "chan_shortterm": "【🚀 纏論三買・短線】",
+        "conservative": "【🛡️ 保守型】",
+        "default": "【⚡ 預設 V3.2】",
+    }
+    strat_tag = strat_map.get(s.get("strategy_id", "default"), "")
+    tag_str = f" {strat_tag}" if strat_tag else ""
+
+    lines.append(f"*{s['stock_id']} {s['name']}*{tag_str}  綜合 {s['signal_score']} 分")
     if show_trend and t:
         ma_status = ""
         if t.get("above_ma20") and t.get("above_ma60"):
@@ -77,11 +86,11 @@ def _explain_why(s: dict) -> str:
     c = s.get("components", {})
     reasons = []
     if not c.get("fundamental_pass"):
-        reasons.append("基本面未達標(EPS>5,ROE>15)")
+        reasons.append(f"基本面未達標(EPS>{CONFIG['eps_threshold']:.0f},ROE>{CONFIG['roe_threshold']:.0f})")
     if c.get("tech_score", 0) < 50:
         reasons.append(f"技術分僅{c.get('tech_score', 0)}(<50)")
-    if s.get("signal_score", 0) < 65:
-        reasons.append(f"綜合分{s.get('signal_score', 0)}(<65)")
+    if s.get("signal_score", 0) < CONFIG["min_total_score_for_buy"]:
+        reasons.append(f"綜合分{s.get('signal_score', 0)}(<{CONFIG['min_total_score_for_buy']})")
     if not reasons:
         return "所有條件皆達標"
     return " / ".join(reasons)
