@@ -1,0 +1,458 @@
+[
+  {
+    "strategy_id": "chan_longterm",
+    "strategy_title": "🎯 纏論一買 (長線波段)",
+    "stock_id": "2330",
+    "name": "台積電",
+    "action": "WATCH",
+    "signal_score": 72.2,
+    "entry_price": 2390.0,
+    "stop_loss_price": 2198.8,
+    "target_price": 2868.0,
+    "risk_reward_ratio": 2.5,
+    "components": {
+      "fundamental_pass": true,
+      "eps_min": 32.34,
+      "roe_min": 23.97,
+      "tech_score": 38,
+      "tech_signals": [
+        "布林下軌反彈"
+      ],
+      "backtest_winrate": 0.693,
+      "backtest_samples": 101,
+      "volume_patterns": [
+        "縮量柱"
+      ],
+      "volume_details": {
+        "縮量柱": "連續 3 日量能遞減，回調但賣壓輕"
+      },
+      "volume_bonus": 5,
+      "volume_verdict": "🟡 量縮洗盤，主力未退場"
+    },
+    "risk_notes": []
+  },
+  {
+    "strategy_id": "chan_longterm",
+    "strategy_title": "🎯 纏論一買 (長線波段)",
+    "stock_id": "2317",
+    "name": "鴻海",
+    "action": "SKIP",
+    "signal_score": 43.2,
+    "entry_price": 247.5,
+    "stop_loss_price": 227.7,
+    "target_price": 297.0,
+    "risk_reward_ratio": 2.5,
+    "components": {
+      "fundamental_pass": false,
+      "eps_min": 10.25,
+      "roe_min": 8.07,
+      "tech_score": 47,
+      "tech_signals": [
+        "KD黃金交叉"
+      ],
+      "backtest_winrate": 0.438,
+      "backtest_samples": 162,
+      "volume_patterns": [
+        "平量柱"
+      ],
+      "volume_details": {
+        "平量柱": "連續 3 日量能 34131729/29265369/29851493 高度一致，多空平衡蓄力中"
+      },
+      "volume_bonus": 0,
+      "volume_verdict": "⚖️ 多空平衡蓄力中，等下一根倍量或破線"
+    },
+    "risk_notes": [
+      "基本面未過門檻",
+      "歷史勝率 44% 低於五成"
+    ]
+  },
+  {
+    "strategy_id": "chan_longterm",
+    "strategy_title": "🎯 纏論一買 (長線波段)",
+    "stock_id": "2367",
+    "name": "燿華",
+    "action": "SKIP",
+    "signal_score": 48.4,
+    "entry_price": 42.3,
+    "stop_loss_price": 38.92,
+    "target_price": 50.76,
+    "risk_reward_ratio": 2.5,
+    "components": {
+      "fundamental_pass": false,
+      "eps_min": -0.51,
+      "roe_min": -7.1,
+      "tech_score": 67,
+      "tech_signals": [
+        "布林下軌反彈",
+        "MACD多頭"
+      ],
+      "backtest_winrate": 0.409,
+      "backtest_samples": 198,
+      "volume_patterns": [],
+      "volume_details": {},
+      "volume_bonus": 0,
+      "volume_verdict": "量能平淡，無特殊訊號"
+    },
+    "risk_notes": [
+      "基本面未過門檻",
+      "歷史勝率 41% 低於五成"
+    ]
+  },
+  {
+    "strategy_id": "chan_longterm",
+    "strategy_title": "🎯 纏論一買 (長線波段)",
+    "stock_id": "2474",
+    "name": "可成",
+    "action": "SKIP",
+    "signal_score": 40.9,
+    "entry_price": 206.5,
+    "stop_loss_price": 189.98,
+    "target_price": 247.8,
+    "risk_reward_ratio": 2.5,
+    "components": {
+      "fundamental_pass": false,
+      "eps_min": 11.36,
+      "roe_min": 1.85,
+      "tech_score": 33,
+      "tech_signals": [
+        "MACD多頭"
+      ],
+      "backtest_winrate": 0.5,
+      "backtest_samples": 202,
+      "volume_patterns": [],
+      "volume_details": {},
+      "volume_bonus": 0,
+      "volume_verdict": "量能平淡，無特殊訊號"
+    },
+    "risk_notes": [
+      "基本面未過門檻"
+    ]
+  },
+  {
+    "strategy_id": "chan_longterm",
+    "strategy_title": "🎯 纏論一買 (長線波段)",
+    "stock_id": "2885",
+    "name": "元大金",
+    "action": "WATCH",
+    "signal_score": 62.9,
+    "entry_price": 68.5,
+    "stop_loss_price": 63.02,
+    "target_price": 82.2,
+    "risk_reward_ratio": 2.5,
+    "components": {
+      "fundamental_pass": false,
+      "eps_min": 2.09,
+      "roe_min": null,
+      "tech_score": 77,
+      "tech_signals": [
+        "KD黃金交叉",
+        "MACD多頭"
+      ],
+      "backtest_winrate": 0.792,
+      "backtest_samples": 125,
+      "volume_patterns": [
+        "倍量柱"
+      ],
+      "volume_details": {
+        "倍量柱": "今日量為昨日 2.0x"
+      },
+      "volume_bonus": 10,
+      "volume_verdict": "🟢 今日出現倍量攻勢，關注後續跟進"
+    },
+    "risk_notes": [
+      "基本面未過門檻"
+    ]
+  },
+  {
+    "strategy_id": "chan_longterm",
+    "strategy_title": "🎯 纏論一買 (長線波段)",
+    "stock_id": "6278",
+    "name": "台表科",
+    "action": "SKIP",
+    "signal_score": 40.8,
+    "entry_price": 191.5,
+    "stop_loss_price": 176.18,
+    "target_price": 229.8,
+    "risk_reward_ratio": 2.5,
+    "components": {
+      "fundamental_pass": false,
+      "eps_min": 8.57,
+      "roe_min": 8.69,
+      "tech_score": 41,
+      "tech_signals": [
+        "MACD多頭"
+      ],
+      "backtest_winrate": 0.416,
+      "backtest_samples": 214,
+      "volume_patterns": [
+        "低量柱"
+      ],
+      "volume_details": {
+        "低量柱": "今日量僅 20 日均量 45%，拋壓耗盡"
+      },
+      "volume_bonus": 8,
+      "volume_verdict": "🟡 底部極限縮量，拋壓耗盡，等待訊號"
+    },
+    "risk_notes": [
+      "基本面未過門檻",
+      "歷史勝率 42% 低於五成"
+    ]
+  },
+  {
+    "strategy_id": "chan_longterm",
+    "strategy_title": "🎯 纏論一買 (長線波段)",
+    "stock_id": "2646",
+    "name": "星宇航空",
+    "action": "SKIP",
+    "signal_score": 36.5,
+    "entry_price": 20.7,
+    "stop_loss_price": 19.04,
+    "target_price": 24.84,
+    "risk_reward_ratio": 2.5,
+    "components": {
+      "fundamental_pass": false,
+      "eps_min": 0.08,
+      "roe_min": null,
+      "tech_score": 33,
+      "tech_signals": [
+        "布林下軌反彈"
+      ],
+      "backtest_winrate": 0.352,
+      "backtest_samples": 378,
+      "volume_patterns": [],
+      "volume_details": {},
+      "volume_bonus": 0,
+      "volume_verdict": "量能平淡，無特殊訊號"
+    },
+    "risk_notes": [
+      "基本面未過門檻",
+      "歷史勝率 35% 低於五成"
+    ]
+  },
+  {
+    "strategy_id": "chan_shortterm",
+    "strategy_title": "🚀 纏論三買 (短線爆發)",
+    "stock_id": "2330",
+    "name": "台積電",
+    "action": "SKIP",
+    "signal_score": 43.5,
+    "entry_price": 2390.0,
+    "stop_loss_price": 2270.5,
+    "target_price": 2629.0,
+    "risk_reward_ratio": 2.0,
+    "components": {
+      "fundamental_pass": true,
+      "eps_min": 32.34,
+      "roe_min": 23.97,
+      "tech_score": 5,
+      "tech_signals": [],
+      "backtest_winrate": 0.606,
+      "backtest_samples": 251,
+      "volume_patterns": [
+        "縮量柱"
+      ],
+      "volume_details": {
+        "縮量柱": "連續 3 日量能遞減，回調但賣壓輕"
+      },
+      "volume_bonus": 5,
+      "volume_verdict": "🟡 量縮洗盤，主力未退場"
+    },
+    "risk_notes": []
+  },
+  {
+    "strategy_id": "chan_shortterm",
+    "strategy_title": "🚀 纏論三買 (短線爆發)",
+    "stock_id": "2317",
+    "name": "鴻海",
+    "action": "WATCH",
+    "signal_score": 50.7,
+    "entry_price": 247.5,
+    "stop_loss_price": 235.12,
+    "target_price": 272.25,
+    "risk_reward_ratio": 2.0,
+    "components": {
+      "fundamental_pass": true,
+      "eps_min": 10.25,
+      "roe_min": 8.07,
+      "tech_score": 33,
+      "tech_signals": [
+        "KD黃金交叉"
+      ],
+      "backtest_winrate": 0.454,
+      "backtest_samples": 163,
+      "volume_patterns": [
+        "平量柱"
+      ],
+      "volume_details": {
+        "平量柱": "連續 3 日量能 34131729/29265369/29851493 高度一致，多空平衡蓄力中"
+      },
+      "volume_bonus": 0,
+      "volume_verdict": "⚖️ 多空平衡蓄力中，等下一根倍量或破線"
+    },
+    "risk_notes": [
+      "歷史勝率 45% 低於五成"
+    ]
+  },
+  {
+    "strategy_id": "chan_shortterm",
+    "strategy_title": "🚀 纏論三買 (短線爆發)",
+    "stock_id": "2367",
+    "name": "燿華",
+    "action": "SKIP",
+    "signal_score": 39.8,
+    "entry_price": 42.3,
+    "stop_loss_price": 40.18,
+    "target_price": 46.53,
+    "risk_reward_ratio": 2.0,
+    "components": {
+      "fundamental_pass": false,
+      "eps_min": -0.51,
+      "roe_min": -7.1,
+      "tech_score": 33,
+      "tech_signals": [
+        "MACD多頭"
+      ],
+      "backtest_winrate": 0.485,
+      "backtest_samples": 163,
+      "volume_patterns": [],
+      "volume_details": {},
+      "volume_bonus": 0,
+      "volume_verdict": "量能平淡，無特殊訊號"
+    },
+    "risk_notes": [
+      "基本面未過門檻",
+      "歷史勝率 48% 低於五成"
+    ]
+  },
+  {
+    "strategy_id": "chan_shortterm",
+    "strategy_title": "🚀 纏論三買 (短線爆發)",
+    "stock_id": "2474",
+    "name": "可成",
+    "action": "WATCH",
+    "signal_score": 54.4,
+    "entry_price": 206.5,
+    "stop_loss_price": 196.17,
+    "target_price": 227.15,
+    "risk_reward_ratio": 2.0,
+    "components": {
+      "fundamental_pass": false,
+      "eps_min": 11.36,
+      "roe_min": 1.85,
+      "tech_score": 67,
+      "tech_signals": [
+        "均線多頭",
+        "MACD多頭"
+      ],
+      "backtest_winrate": 0.463,
+      "backtest_samples": 175,
+      "volume_patterns": [],
+      "volume_details": {},
+      "volume_bonus": 0,
+      "volume_verdict": "量能平淡，無特殊訊號"
+    },
+    "risk_notes": [
+      "基本面未過門檻",
+      "歷史勝率 46% 低於五成"
+    ]
+  },
+  {
+    "strategy_id": "chan_shortterm",
+    "strategy_title": "🚀 纏論三買 (短線爆發)",
+    "stock_id": "2885",
+    "name": "元大金",
+    "action": "WATCH",
+    "signal_score": 71.1,
+    "entry_price": 68.5,
+    "stop_loss_price": 65.08,
+    "target_price": 75.35,
+    "risk_reward_ratio": 2.0,
+    "components": {
+      "fundamental_pass": false,
+      "eps_min": 2.09,
+      "roe_min": null,
+      "tech_score": 93,
+      "tech_signals": [
+        "KD黃金交叉",
+        "MACD多頭"
+      ],
+      "backtest_winrate": 0.608,
+      "backtest_samples": 250,
+      "volume_patterns": [
+        "倍量柱"
+      ],
+      "volume_details": {
+        "倍量柱": "今日量為昨日 2.0x"
+      },
+      "volume_bonus": 10,
+      "volume_verdict": "🟢 今日出現倍量攻勢，關注後續跟進"
+    },
+    "risk_notes": [
+      "基本面未過門檻"
+    ]
+  },
+  {
+    "strategy_id": "chan_shortterm",
+    "strategy_title": "🚀 纏論三買 (短線爆發)",
+    "stock_id": "6278",
+    "name": "台表科",
+    "action": "WATCH",
+    "signal_score": 66.1,
+    "entry_price": 191.5,
+    "stop_loss_price": 181.92,
+    "target_price": 210.65,
+    "risk_reward_ratio": 2.0,
+    "components": {
+      "fundamental_pass": true,
+      "eps_min": 8.57,
+      "roe_min": 8.69,
+      "tech_score": 75,
+      "tech_signals": [
+        "均線多頭",
+        "MACD多頭"
+      ],
+      "backtest_winrate": 0.352,
+      "backtest_samples": 182,
+      "volume_patterns": [
+        "低量柱"
+      ],
+      "volume_details": {
+        "低量柱": "今日量僅 20 日均量 45%，拋壓耗盡"
+      },
+      "volume_bonus": 8,
+      "volume_verdict": "🟡 底部極限縮量，拋壓耗盡，等待訊號"
+    },
+    "risk_notes": [
+      "歷史勝率 35% 低於五成"
+    ]
+  },
+  {
+    "strategy_id": "chan_shortterm",
+    "strategy_title": "🚀 纏論三買 (短線爆發)",
+    "stock_id": "2646",
+    "name": "星宇航空",
+    "action": "SKIP",
+    "signal_score": 16.9,
+    "entry_price": 20.7,
+    "stop_loss_price": 19.66,
+    "target_price": 22.77,
+    "risk_reward_ratio": 2.0,
+    "components": {
+      "fundamental_pass": false,
+      "eps_min": 0.08,
+      "roe_min": null,
+      "tech_score": 0,
+      "tech_signals": [],
+      "backtest_winrate": 0.255,
+      "backtest_samples": 165,
+      "volume_patterns": [],
+      "volume_details": {},
+      "volume_bonus": 0,
+      "volume_verdict": "量能平淡，無特殊訊號"
+    },
+    "risk_notes": [
+      "基本面未過門檻",
+      "歷史勝率 26% 低於五成"
+    ]
+  }
+]
