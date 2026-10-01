@@ -1,7 +1,7 @@
 [
   {
     "stock_id": "2317",
-    "name": "鴻海",
+    "name": "#N/A",
     "enabled": 1
   },
   {
@@ -11,27 +11,27 @@
   },
   {
     "stock_id": "2367",
-    "name": "燿華",
+    "name": "#N/A",
     "enabled": 1
   },
   {
     "stock_id": "2474",
-    "name": "可成",
+    "name": "#N/A",
     "enabled": 1
   },
   {
     "stock_id": "2646",
-    "name": "星宇航空",
+    "name": "#N/A",
     "enabled": 1
   },
   {
     "stock_id": "2885",
-    "name": "元大金",
+    "name": "#N/A",
     "enabled": 1
   },
   {
     "stock_id": "6278",
-    "name": "台表科",
+    "name": "#N/A",
     "enabled": 1
   }
 ]
